@@ -34,5 +34,13 @@ class M_crud extends CI_Model {
 	public function index()
 	{
 		$this->load->view('welcome_message');
-	}
+    }
+    
+    function delete($id)
+    {
+        $this->db->where('product_id', $id);
+        $query = $this->db->delete('products');
+
+        return $query;
+    }
 }
